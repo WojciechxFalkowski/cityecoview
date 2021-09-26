@@ -86,7 +86,8 @@ export default {
       CAROUSEL_CONFIG: {
         interval: 10000,
         pause: false,
-        wrap: true
+        wrap: true,
+        touch: true,
       },
       activeSlideIndex: 0,
       slides: [
@@ -257,12 +258,17 @@ export default {
     width: 2.5625rem;
     justify-content: space-between;
 
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
     path {
       stroke: $cardin-100;
     }
 
     svg:last-child {
-      transform: rotate(180deg);
+      transform: rotate(180deg) translateY(50%);
     }
 
     @media(min-width: 768px) {
