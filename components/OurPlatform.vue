@@ -17,7 +17,7 @@
                    :class="index===activeSlideIndex?'active':''">
                 <div class="h-100 position-relative">
                   <img class="our-platform__carousel-image" :src="`${$config._app.basePath}images/${slide.imgUrl}`"
-                       alt="...">
+                       :alt="slides.smallDescription">
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
             <div v-for="(slide,index) of slides" class="our-platform__line"
                  :class="index===activeSlideIndex?'active':''"
                  data-bs-target="#carouselDesktopIndicators"
-                 :data-bs-slide-to="index" :aria-label="'Slide ' + index"></div>
+                 :data-bs-slide-to="index" :aria-label="slide.smallDescription"></div>
           </div>
 
           <div class="our-platform__arrow-tips-wrapper">
@@ -69,7 +69,7 @@
                :class="index===activeSlideIndex?'active':''">
             <div class="h-100 position-relative">
               <img :src="`${$config._app.basePath}images/${slide.imgUrl}`"
-                   class="d-block position-absolute top-50 start-50 translate-middle" alt="...">
+                   class="d-block position-absolute top-50 start-50 translate-middle" :alt="slide.smallDescription">
             </div>
           </div>
         </div>
