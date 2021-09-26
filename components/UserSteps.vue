@@ -60,6 +60,12 @@ export default {}
   .underline-image {
     &::after {
       background-image: url("#{$assetPath}/images/three_steps_line.jpg");
+
+      @media (min-width: 992px) {
+        background-image: url("#{$assetPath}/images/three_steps_line-desktop.jpg");
+        height: 1.0625rem;
+        transform: translate(-50%, 0);
+      }
     }
   }
 }

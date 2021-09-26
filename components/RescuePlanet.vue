@@ -6,7 +6,7 @@
         <span class="d-none d-lg-block">Zacznij ratować planetę z ludźmi, którym zależy. </span>
       </h2>
 
-      <button class="btn btn-primary mt-4">Ściągnij aplikację</button>
+      <a class="btn btn-primary mt-4" href="http://app.cityecoview.com">Ściągnij aplikację</a>
     </div>
   </section>
 </template>
@@ -18,6 +18,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./../assets/variables";
+
 .rescue-planet {
   position: relative;
   height: 23rem;
@@ -65,9 +67,13 @@ export default {
       padding: unset;
     }
 
-    button {
+    a {
       width: fit-content;
       margin: 0 auto;
+
+      &:hover {
+        border-color: $black;
+      }
     }
   }
 }

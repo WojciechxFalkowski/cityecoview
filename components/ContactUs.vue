@@ -81,12 +81,13 @@ export default {
       &::after {
         background-image: url("#{$assetPath}/images/contact_us_line.jpg");
         height: 0.875rem;
+
+        @media (min-width: 992px) {
+          background-image: url("#{$assetPath}/images/contact_us_line-desktop.jpg");
+          transform: translate(-50%, 25%);
+        }
       }
     }
-  }
-
-  & > div:first-child {
-
   }
 
   &__newsletter-wrapper {
@@ -100,6 +101,11 @@ export default {
       &::after {
         background-image: url("#{$assetPath}/images/newsletter_line.jpg");
         height: 0.875rem;
+
+        @media (min-width: 992px) {
+          background-image: url("#{$assetPath}/images/newsletter_line-desktop.jpg");
+          transform: translate(-50%, 40%);
+        }
       }
     }
   }

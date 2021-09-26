@@ -2,11 +2,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    "base": '/city-eko-view/',
+    "base": '/',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'city_eko_view',
+    title: 'city_eco_view',
     htmlAttrs: {
       lang: 'en'
     },
@@ -18,9 +18,17 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
-    ]
+    ],
+    script: [
+      {
+        src: "/js/bootstrap.bundle.min.js",
+      }
+    ],
   },
-
+  // generate: {
+  //   dir: 'nuxt-dist',
+  //   subFolders: false
+  // },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     {src: "@/assets/custom-bootstrap", lang: "scss"},
@@ -49,5 +57,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {
+    //publicPath: "nuxt-folder"
+  }
 }

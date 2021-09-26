@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="m-6 mx-lg-0">
+    <div class="m-6">
       <svg width="129" height="29" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M10.778 6.253V3.716c0-.803-.624-1.446-1.405-1.446-.78 0-1.405.643-1.405 1.446v2.537c-3.81.69-6.714 4.111-6.714 8.223 0 6.263 7.494 13.034 8.119 13.034s8.119-6.29 8.119-13.035c0-4.11-2.904-7.531-6.714-8.222z"
@@ -19,12 +19,12 @@
           fill="#181E1B"/>
       </svg>
 
-      <h1 class="header__title header-40-1">
+      <h1 class="header__title header-40-1 header-lg-64">
         Nie jesteś sam w walce <span class="header__title-one-line">o <span
         class="underline-image">klimat</span> ✊.</span>
       </h1>
 
-      <button class="btn btn-primary">Pobierz aplikację</button>
+      <a class="btn btn-primary" href="http://app.cityecoview.com">Pobierz aplikację</a>
     </div>
 
     <div class="header__image"></div>
@@ -61,6 +61,13 @@
     &::after {
       width: 9rem;
       background-image: url("#{$assetPath}/images/climate_line.jpg");
+
+      @media(min-width: 992px) {
+        width: 110%;
+        height: 0.75rem;
+        background-image: url("#{$assetPath}/images/climate_line-desktop.jpg");
+        transform: translate(-50%, 0);
+      }
     }
   }
 
@@ -72,12 +79,17 @@
     background-size: 100%;
     background-image: url("#{$assetPath}/images/hero_image.jpg");
     margin-top: 3.5rem;
+
     @media (min-width: 992px) {
       flex-basis: 50%;
       height: unset;
+      min-width: 19rem;
     }
+
     @media (min-width: 1200px) {
       background-position: 25% 25%;
+      min-width: 34.875rem;
+
     }
   }
 }

@@ -14,7 +14,6 @@ $black: #000000;
 $sapphire-100: #00A1E7;
 $turquoise: #00DFB7;
 //$gray: $cardin-100;
-//$light-gray: #666666;
 $primary: $cardin-100;
 $secondary: $cardin-40;
 $body-color: $cardin-100;
@@ -22,13 +21,7 @@ $body-color: $cardin-100;
 //$coolgray-30: #CCCCCC;
 //$coolgray-50: #999999;
 
-//$secondary: #98ddde;
-//$success: #81894e;
-//$info: #185190;
-//$warning: #ffdb3b;
-//$danger: #f36e60;
-//$light: #f5fbfb;
-//$dark: #040b0c;
+
 
 $theme-colors: map-merge(
     $theme-colors,
@@ -41,7 +34,6 @@ $theme-colors: map-merge(
 // $link-hover-decoration: none;
 // $border-radius: 0;
 $font-family-sans-serif: 'Poppins', 'sans-serif';
-//$font-family-monospace: "Fira Mono", monospace;
 // $font-weight-bold: 600;
 
 //Spacers
