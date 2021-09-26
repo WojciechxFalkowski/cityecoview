@@ -44,12 +44,12 @@
 
           <div class="our-platform__arrow-tips-wrapper">
             <svg type="button" data-bs-target="#carouselMobileIndicators" data-bs-slide="prev" width="6" height="10"
-                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                 xmlns="http://www.w3.org/2000/svg">
               <path d="M5.383 1 1 5M5.383 9 1 5" stroke="#A3A5A4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
             <svg type="button" data-bs-target="#carouselMobileIndicators" data-bs-slide="next" width="6" height="10"
-                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                 xmlns="http://www.w3.org/2000/svg">
               <path d="M5.383 1 1 5M5.383 9 1 5" stroke="#A3A5A4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
@@ -256,6 +256,10 @@ export default {
     display: flex;
     width: 2.5625rem;
     justify-content: space-between;
+
+    path {
+      stroke: $cardin-100;
+    }
 
     svg:last-child {
       transform: rotate(180deg);
