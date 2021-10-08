@@ -123,11 +123,19 @@ export default {
       ]
     }
   },
-
   computed: {
     activeSlideDescription() {
       return this.slides[this.activeSlideIndex]
     }
+  },
+ async created() {
+   // console.log('created');
+   // console.log(await this.$strapi.find('tests'))
+    // try {
+    //   await this.$strapi.find('restaurants');
+    // } catch (error) {
+    //   console.error(error);
+    // }
   },
   mounted() {
     const mobileCarousel = document.querySelector('#carouselMobileIndicators');

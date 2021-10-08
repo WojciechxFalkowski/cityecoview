@@ -1,0 +1,208 @@
+<template>
+  <section class="wrapper blog">
+    <h2 class="header-24 header-lg-40-2 fw-bold mb-4">Głodny wiedzy? Sprawdż jak być bardziej eko dzięki naszym <span
+      class="underline-image">arykułom</span></h2>
+
+    <swiper class="d-lg-none" ref="mySwiper" :options="swiperOptions">
+      <swiper-slide v-for="(slide,index) of slides" :key="index">
+        <img :src="`${$config._app.basePath}images/${slide.imgUrl}`" :alt="slide.description">
+        <p class="p-3 fw-bold mb-0">{{ slide.description }}</p>
+      </swiper-slide>
+
+      <swiper-slide class="d-flex justify-content-center align-items-center h-auto">
+        <div class="blog__article-discover-more-description">
+          <h4 class="header-24 text-center fw-bold mb-md-5">Odkry więcej treści</h4>
+          <p class="text-center">Kliknij kafelek, aby <a href="#">przejść na blog</a></p>
+        </div>
+      </swiper-slide>
+    </swiper>
+
+    <div class="blog__articles">
+      <!--LEFT IMG-->
+      <div class="blog__article-left">
+        <img class="w-100" :src="`${$config._app.basePath}images/${slides[0].imgUrlDesktop}`"
+             :alt="slides[0].description">
+        <h3 class="header-40-2 bg-black text-white w-100 p-5 mb-0">{{ slides[0].description }}</h3>
+      </div>
+
+      <!--RIGHT IMAGES-->
+      <div class="blog__article-right">
+        <!--TOP IMAGE-->
+        <div class="blog__article-top">
+          <img :src="`${$config._app.basePath}images/${slides[1].imgUrlDesktop}`"
+               :alt="slides[1].description">
+          <h3 class="header-24 w-50 mb-0 fw-bold">{{ slides[1].description }}</h3>
+        </div>
+
+        <!--BOTTOM IMAGE-->
+        <div class="d-flex mt-4">
+          <div class="blog__article-bottom">
+            <img :src="`${$config._app.basePath}images/${slides[2].imgUrlDesktop}`"
+                 :alt="slides[2].description">
+            <h3 class="header-24 mb-0 p-3 p-xxl-4 fw-bold">{{ slides[2].description }}</h3>
+          </div>
+
+          <div class="blog__article-discover-more">
+            <div class="blog__article-discover-more-description">
+              <h4 class="header-24 text-center fw-bold mb-2">Odkry więcej treści</h4>
+              <p class="text-center">Kliknij kafelek, aby <a href="#">przejść na blog</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</template>
+
+<script>
+import {Swiper, SwiperSlide, directive} from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
+export default {
+  name: "Blog",
+  data() {
+    return {
+      swiperOptions: {
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+      },
+      slides: [
+        {
+          imgUrl: 'blog_img_1.jpg',
+          imgUrlDesktop: 'blog_img_1-desktop.jpg',
+          description: 'Ecological statistics from aircraft'
+        },
+        {
+          imgUrl: 'blog_img_1.jpg',
+          imgUrlDesktop: 'blog_img_2-desktop.jpg',
+          description: 'Plants: friends or foes of vegan people. Battle highlights.'
+        },
+        {
+          imgUrl: 'blog_img_1.jpg',
+          imgUrlDesktop: 'blog_img_3-desktop.jpg',
+          description: '5 easy tricks for ecological life and work'
+        }
+      ],
+      image: null
+    }
+  },
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper
+    }
+  },
+  mounted() {
+    this.swiper.slideTo(0, 1000, false);
+  }
+}
+</script>
+
+<style lang="scss">
+@import "./../assets/variables";
+
+.blog {
+  margin-bottom: 4rem;
+
+  &>h2{
+    max-width: 49.875rem;
+  }
+
+  @media(min-width: 768px) {
+    margin-bottom: 10rem;
+  }
+
+  .underline-image {
+    &::after {
+      background-image: url("#{$assetPath}/images/blog_line.jpg");
+      //height: 0.875rem;
+      transform: translate(-50%, 40%);
+
+      @media (min-width: 992px) {
+        background-image: url("#{$assetPath}/images/blog_line-desktop.jpg");
+        height: 1.4375rem;
+        transform: translate(-50%, 45%);
+      }
+    }
+  }
+
+  .swiper-slide {
+    width: 220px;
+  }
+
+  .swiper-slide:nth-child(2n) {
+    width: 220px;
+  }
+
+  .swiper-slide:nth-child(3n) {
+    width: 220px;
+  }
+
+  &__articles {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+  }
+
+  &__article-left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+
+    h3 {
+      height: 100%;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+    }
+  }
+
+  &__article-right {
+    flex-basis: 50%;
+    margin-left: 1.5rem;
+
+  }
+
+  &__article-top {
+    display: flex;
+    align-items: center;
+
+    img {
+      flex-basis: 50%;
+      width: 100%;
+      margin-right: 1.5rem;
+    }
+
+    h3 {
+      max-width: 13.0625rem;
+    }
+  }
+
+  &__article-bottom {
+    flex-basis: 50%;
+  }
+
+  &__article-discover-more {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+    margin-left: 0.75rem;
+    background-color: $cardin-5;
+  }
+
+  &__article-discover-more-description {
+    max-width: 10rem;
+
+    p {
+      line-height: 1.75rem;
+    }
+  }
+}
+</style>

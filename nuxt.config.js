@@ -25,6 +25,9 @@ export default {
       }
     ],
   },
+  server: {
+    host: '0.0.0.0' // default: localhost
+  },
   // generate: {
   //   dir: 'nuxt-dist',
   //   subFolders: false
@@ -50,8 +53,14 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/strapi'
   ],
+
+  strapi: {
+    entities: ['tests'],
+    url: 'https://cityecoview-api.herokuapp.com/'
+  },
   styleResources: {
     scss: ['./assets/scss/*.scss']
   },

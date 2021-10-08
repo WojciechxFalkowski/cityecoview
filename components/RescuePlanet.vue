@@ -2,7 +2,7 @@
   <section class="wrapper rescue-planet">
     <div class="rescue-planet__description-wrapper">
       <h2 class="text-white header-24 header-lg-40-2">
-        <span class="d-lg-none">Zacznij już dziś ratować planetę wraz ze społecznścią, której również zależy.</span>
+        <span class="d-lg-none">Zacznij już dziś ratować planetę wraz ze społecznością, której również zależy.</span>
         <span class="d-none d-lg-block">Zacznij ratować planetę z ludźmi, którym zależy. </span>
       </h2>
 

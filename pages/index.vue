@@ -5,6 +5,7 @@
       <UserSteps/>
       <OurPlatform/>
       <RescuePlanet/>
+      <Blog/>
       <ContactUs/>
     </main>
   </div>

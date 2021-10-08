@@ -16,7 +16,7 @@
 
       <div class="user-step">
         <span class="user-step__index header-20 body-lg-32 text-info">02.</span>
-        <h3 class="header-20 header-lg-24 mb-4 fw-bold">Znajdż miejsce</h3>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold">Znajdź miejsce</h3>
 
         <p class="body-16-2">Odszukaj miejsce, w którym występuje rozwiązanie eco lub wręcz przeciwne.</p>
       </div>
@@ -25,7 +25,7 @@
         <span class="user-step__index header-20 body-lg-32 text-info">03.</span>
         <h3 class="header-20 header-lg-24 mb-4 fw-bold">Uratuj planetę</h3>
 
-        <p class="body-16-2">Wystaw opinię na temat wybranego misc i uruchom proces ratowania planety.</p>
+        <p class="body-16-2">Wystaw opinię na temat wybranego miejsca i uruchom proces ratowania planety.</p>
       </div>
     </div>
   </section>
