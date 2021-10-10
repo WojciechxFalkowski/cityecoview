@@ -6,6 +6,7 @@
       <OurPlatform/>
       <RescuePlanet/>
       <Blog/>
+      <Companies/>
       <ContactUs/>
     </main>
   </div>
@@ -17,9 +18,11 @@ import UserSteps from "~/components/UserSteps.vue";
 import OurPlatform from "~/components/OurPlatform.vue";
 import RescuePlanet from "~/components/RescuePlanet.vue";
 import ContactUs from "~/components/ContactUs.vue";
+import Blog from "~/components/Blog.vue";
+import Companies from "~/components/Companies.vue";
 
 export default Vue.extend({
-  components: {ContactUs, RescuePlanet, OurPlatform, UserSteps}
+  components: {ContactUs, RescuePlanet, Blog, Companies, OurPlatform, UserSteps}
 });
 </script>
 

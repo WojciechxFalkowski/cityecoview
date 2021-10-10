@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import {Swiper, SwiperSlide, directive} from 'vue-awesome-swiper'
+import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
 export default {
@@ -106,14 +106,9 @@ export default {
 @import "./../assets/variables";
 
 .blog {
-  margin-bottom: 4rem;
 
   &>h2{
     max-width: 49.875rem;
-  }
-
-  @media(min-width: 768px) {
-    margin-bottom: 10rem;
   }
 
   .underline-image {
@@ -193,7 +188,7 @@ export default {
     justify-content: center;
     align-items: center;
     flex-basis: 50%;
-    margin-left: 0.75rem;
+    margin-left: 1.5rem;
     background-color: $cardin-5;
   }
 
