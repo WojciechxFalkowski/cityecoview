@@ -25,6 +25,9 @@ export default {
       }
     ],
   },
+  ignoreOptions: {
+    ignorecase: false
+  },
   server: {
     host: '0.0.0.0' // default: localhost
   },

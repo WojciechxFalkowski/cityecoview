@@ -39,19 +39,26 @@ export default Vue.extend({
     }
   },
   mounted() {
-    console.log('modalRef')
-    console.log(this.$refs.modalComponentRef.$refs.modalRef);
+    //@ts-ignore
     this.$refs.modalComponentRef.$refs.modalRef.on
+    //@ts-ignore
     this.modal = new bootstrap.Modal(this.$refs.modalComponentRef.$refs.modalRef, {})
 
     setTimeout(() => {
-      this.modal.show()
+      if (this.modal) {
+        //@ts-ignore
+        this.modal.show();
+      }
     }, 5000)
   },
   methods: {
     closeModal() {
-      this.modal.hide();
+      if (typeof this.modal !== 'undefined' && this.modal !== null) {
+        //@ts-ignore
+        this.modal.hide();
+      }
     }
   }
-});
+})
+;
 </script>

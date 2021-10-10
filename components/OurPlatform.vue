@@ -43,19 +43,22 @@
           </div>
 
           <div class="our-platform__arrow-tips-wrapper">
-            <svg type="button" data-bs-target="#carouselMobileIndicators" data-bs-slide="prev" width="6" height="10"
+            <svg @click="showPreviousSlide" type="button"
+                 data-bs-slide="prev" width="6" height="10"
                  xmlns="http://www.w3.org/2000/svg">
               <path d="M5.383 1 1 5M5.383 9 1 5" stroke="#A3A5A4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
 
-            <svg type="button" data-bs-target="#carouselMobileIndicators" data-bs-slide="next" width="6" height="10"
+            <svg @click="showNextSlide" type="button" data-bs-slide="next"
+                 width="6" height="10"
                  xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.383 1 1 5M5.383 9 1 5" stroke="#A3A5A4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1.38269 9L5.76534 4.99987" stroke="#181E1B" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M1.38269 1.00013L5.76534 5" stroke="#181E1B" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
         </div>
 
-        <p class="body-12 mt-2 mt-md-0">
+        <p class="body-12 mt-2 mt-md-0 mb-0">
           To tylko niektóre z funkcjonalności, które przygotwaliśmy, aby uczynić naszą planetę lepszym miejscem dla nas
           wszystkich - sprawdź resztę sam na <a class="btn btn-link body-12" href="http://app.cityecoview.com">app.cityecoview.com</a>
         </p>
@@ -83,6 +86,8 @@ export default {
   name: "OurPlatform",
   data() {
     return {
+      mobile_carousel: null,
+      desktop_carousel: null,
       CAROUSEL_CONFIG: {
         interval: 10000,
         pause: false,
@@ -113,6 +118,13 @@ export default {
           smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
           imgUrl: 'device_map.jpg',
         },
+        {
+          title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
+          textUnderlined: 'ratowanie&nbsp;planety:',
+          smallTitle: 'Wyszukiwanie miejsc',
+          smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
+          imgUrl: 'device_map.jpg',
+        },
         // {
         //   title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
         //   textUnderlined: 'ratowanie&nbsp;planety:',
@@ -128,9 +140,9 @@ export default {
       return this.slides[this.activeSlideIndex]
     }
   },
- async created() {
-   // console.log('created');
-   // console.log(await this.$strapi.find('tests'))
+  async created() {
+    // console.log('created');
+    // console.log(await this.$strapi.find('tests'))
     // try {
     //   await this.$strapi.find('restaurants');
     // } catch (error) {
@@ -139,18 +151,28 @@ export default {
   },
   mounted() {
     const mobileCarousel = document.querySelector('#carouselMobileIndicators');
-    new bootstrap.Carousel(mobileCarousel, this.CAROUSEL_CONFIG)
+    this.mobile_carousel = new bootstrap.Carousel(mobileCarousel, this.CAROUSEL_CONFIG)
 
     mobileCarousel.addEventListener('slide.bs.carousel', (el) => {
       this.activeSlideIndex = el.to;
     });
 
     const desktopCarouselElement = document.querySelector('#carouselDesktopIndicators');
-    new bootstrap.Carousel(desktopCarouselElement, this.CAROUSEL_CONFIG)
+    this.desktop_carousel = new bootstrap.Carousel(desktopCarouselElement, this.CAROUSEL_CONFIG)
 
     desktopCarouselElement.addEventListener('slide.bs.carousel', (el) => {
       this.activeSlideIndex = el.to;
     })
+  },
+  methods: {
+    showPreviousSlide() {
+      this.mobile_carousel.prev()
+      this.desktop_carousel.prev()
+    },
+    showNextSlide() {
+      this.mobile_carousel.next()
+      this.desktop_carousel.next()
+    }
   }
 }
 </script>
@@ -159,7 +181,7 @@ export default {
 @import "./../assets/variables";
 
 .our-platform {
-  margin-top: 5.5rem;
+  margin-top: 2.5rem;
   margin-bottom: 3rem;
 
   @media (min-width: 768px) {
@@ -185,6 +207,12 @@ export default {
         height: 1.4375rem;
         transform: translate(-50%, 45%);
       }
+    }
+  }
+
+  .carousel-item {
+    & img {
+      border-radius: 1rem;
     }
   }
 
@@ -266,9 +294,18 @@ export default {
     width: 2.5625rem;
     justify-content: space-between;
 
+    @include media-breakpoint-up(md) {
+      width: 4.5rem;
+    }
+
     svg {
       width: 1.25rem;
       height: 1.25rem;
+      transform: translateY(-6px);
+
+      & path {
+        transform: translate(7px, 6px);
+      }
     }
 
     path {
@@ -276,11 +313,11 @@ export default {
     }
 
     svg:last-child {
-      transform: rotate(180deg) translateY(50%);
+      //transform: rotate(180deg) translateY(50%);
     }
 
     @media(min-width: 768px) {
-      display: none;
+      //display: none;
     }
   }
 

@@ -101,6 +101,11 @@ export default {
   &__floating-label {
     color: $cardin-40;
     line-height: 1.625rem;
+    font-size: 1.25rem;
+  }
+
+  input[type="email"] {
+    font-size: 1.25rem;
   }
 
   //label, .form-floating > .form-control {

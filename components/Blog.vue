@@ -31,7 +31,7 @@
         <div class="blog__article-top">
           <img :src="`${$config._app.basePath}images/${slides[1].imgUrlDesktop}`"
                :alt="slides[1].description">
-          <h3 class="header-24 w-50 mb-0 fw-bold">{{ slides[1].description }}</h3>
+          <h3 class="header-20 header-xxl-24 w-50 mb-0 fw-bold">{{ slides[1].description }}</h3>
         </div>
 
         <!--BOTTOM IMAGE-->
@@ -39,7 +39,7 @@
           <div class="blog__article-bottom">
             <img :src="`${$config._app.basePath}images/${slides[2].imgUrlDesktop}`"
                  :alt="slides[2].description">
-            <h3 class="header-24 mb-0 p-3 p-xxl-4 fw-bold">{{ slides[2].description }}</h3>
+            <h3 class="header-20 header-xxl-24 mb-0 p-3 p-xxl-4 fw-bold">{{ slides[2].description }}</h3>
           </div>
 
           <div class="blog__article-discover-more">

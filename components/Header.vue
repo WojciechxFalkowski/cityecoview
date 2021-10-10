@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="m-6">
+    <div class="header__text-wrapper">
       <svg width="129" height="29" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M10.778 6.253V3.716c0-.803-.624-1.446-1.405-1.446-.78 0-1.405.643-1.405 1.446v2.537c-3.81.69-6.714 4.111-6.714 8.223 0 6.263 7.494 13.034 8.119 13.034s8.119-6.29 8.119-13.035c0-4.11-2.904-7.531-6.714-8.222z"
@@ -32,14 +32,30 @@
 </template>
 
 <style lang="scss">
+
 .header {
   @media (min-width: 992px) {
     display: flex;
-    margin: 0 2rem;
+    margin: 3.5rem 2rem 0 2rem;
   }
   @media (min-width: 1200px) {
     max-width: 1140px;
     margin: 0 auto;
+  }
+
+  &__text-wrapper {
+    margin: 3.5rem;
+
+    @media (min-width: 992px) {
+      margin-left: unset;
+
+    }
+
+    & svg {
+      @media (min-width: 992px) {
+        margin-top: 3.5rem;
+      }
+    }
   }
 
   &__title {
@@ -83,12 +99,14 @@
     @media (min-width: 992px) {
       flex-basis: 50%;
       height: unset;
-      min-width: 19rem;
+      min-width: 27rem;
+      background-size: cover;
     }
 
     @media (min-width: 1200px) {
       background-position: 25% 25%;
       min-width: 34.875rem;
+      min-height: 35.4375rem;
 
     }
   }

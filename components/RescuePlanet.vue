@@ -33,6 +33,7 @@ export default {
 
   @media (min-width: 768px) {
     margin-bottom: 11.25rem;
+    height: 28rem;
   }
 
   &::before {
@@ -44,7 +45,7 @@ export default {
     background-color: rgba(0, 0, 0, 0.45);
 
     @media (min-width: 768px) {
-      background-color: rgba(0, 0, 0, 0.65);
+      background-color: rgba(0, 0, 0, 0.45);
     }
   }
 
