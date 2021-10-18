@@ -38,7 +38,7 @@
       </svg>
       <h1 class="header__title header-40-1 header-lg-64">
         {{ $t('greeting') }} <span class="header__title-one-line">o <span
-        class="underline-image">planetę</span> ✊.</span>
+        class="underline-image">klimat</span> ✊.</span>
       </h1>
 
       <a class="btn btn-primary" href="http://app.cityecoview.com">Pobierz aplikację</a>
