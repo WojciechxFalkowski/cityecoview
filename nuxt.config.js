@@ -57,7 +57,28 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/strapi'
+    '@nuxtjs/strapi',
+    [
+      'nuxt-i18n',
+      {
+        locales: ['en', 'es','pl'],
+        defaultLocale: 'pl',
+        vueI18n: {
+          fallbackLocale: 'pl',
+          messages: {
+            en: {
+              greeting: 'Hello world!'
+            },
+            pl: {
+              greeting: 'Razem w trosce'
+            },
+            es: {
+              greeting: '¡Hola mundo!'
+            }
+          }
+        }
+      }
+    ]
   ],
 
   strapi: {

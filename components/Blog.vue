@@ -1,6 +1,6 @@
 <template>
   <section class="wrapper blog">
-    <h2 class="header-24 header-lg-40-2 fw-bold mb-4">Głodny wiedzy? Sprawdż jak być bardziej eko dzięki naszym <span
+    <h2 class="header-24 header-lg-40-2 fw-bold mb-4">Głodny wiedzy? <br/> Sprawdż jak być bardziej eko dzięki naszym <span
       class="underline-image">arykułom</span></h2>
 
     <swiper class="d-lg-none" ref="mySwiper" :options="swiperOptions">

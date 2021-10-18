@@ -49,7 +49,7 @@ export default Vue.extend({
         //@ts-ignore
         this.modal.show();
       }
-    }, 5000)
+    }, 500000000)
   },
   methods: {
     closeModal() {

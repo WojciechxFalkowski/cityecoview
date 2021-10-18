@@ -1,5 +1,23 @@
 <template>
   <header class="header">
+    <div class="position-absolute top-0 end-0 me-4 me-lg-0">
+      <nuxt-link
+        class="header__language body-12 text-decoration-none me-3"
+        :to="switchLocalePath('pl')"
+        :class="$i18n.locale === 'pl'?'active':''"
+      >
+        Polski
+      </nuxt-link>
+
+      <nuxt-link
+        class="header__language body-12 text-decoration-none"
+        :to="switchLocalePath('en')"
+        :class="$i18n.locale === 'en'?'active':''"
+      >
+        English
+      </nuxt-link>
+    </div>
+
     <div class="header__text-wrapper">
       <svg width="129" height="29" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -18,10 +36,9 @@
           d="M98.299 9.42a1.347 1.347 0 0 1 1.203 1.94l-4.88 10.842c-.285.551-1.073.551-1.336 0L88.47 11.36a1.346 1.346 0 0 1 1.204-1.94h.022c.525 0 1.007.31 1.226.794l3.064 7.67 3.087-7.67c.219-.485.7-.793 1.226-.793zM100.794 10.81c0-.442.131-.816.416-1.08.262-.265.635-.397 1.094-.397.46 0 .832.132 1.095.396.262.265.416.618.416 1.08 0 .441-.132.794-.416 1.058-.285.264-.635.397-1.095.397-.459 0-.832-.132-1.094-.397-.285-.264-.416-.617-.416-1.058zm1.488 2.6c.745 0 1.357.617 1.357 1.366v6.369c0 .749-.612 1.366-1.357 1.366a1.369 1.369 0 0 1-1.357-1.366v-6.37c0-.748.613-1.365 1.357-1.365zM110.228 13.167c1.335 0 2.364.419 3.108 1.234.745.816 1.117 1.83 1.117 3.02 0 .616-.504 1.101-1.117 1.101h-4.881c.044.617.285 1.102.744 1.433.438.33 1.029.506 1.773.506a8.45 8.45 0 0 0 1.795-.198h.022a1.07 1.07 0 0 1 1.313 1.058v.066c0 .463-.306.881-.766 1.036-.722.22-1.598.352-2.626.352-1.533 0-2.758-.44-3.678-1.344-.919-.904-1.379-2.05-1.379-3.46 0-1.366.438-2.512 1.314-3.438.875-.925 1.97-1.366 3.261-1.366zm1.401 3.967c.131 0 .219-.11.219-.243a1.727 1.727 0 0 0-.416-1.057c-.285-.353-.7-.53-1.248-.53-.525 0-.941.177-1.247.53a1.974 1.974 0 0 0-.482 1.035c-.022.133.088.265.219.265h2.955zM122.267 13.476c.482 0 .898.308 1.051.749l.766 2.248c.197.55.46 1.41.766 2.578.088-.198.241-.617.438-1.278.219-.661.35-1.102.416-1.322l.766-2.292c.153-.44.569-.75 1.051-.75h.372c.788 0 1.313.816 1.028 1.543l-2.867 6.964a1.099 1.099 0 0 1-1.029.683h-.197c-.46 0-.875-.287-1.051-.727l-1.532-4.253-1.51 4.253c-.153.44-.569.749-1.051.749h-.241c-.437 0-.853-.264-1.028-.683l-2.868-6.964c-.306-.727.241-1.542 1.029-1.542h.372c.482 0 .898.308 1.051.749.985 2.953 1.532 4.584 1.62 4.87l1.576-4.826c.175-.44.591-.75 1.072-.75z"
           fill="#181E1B"/>
       </svg>
-
       <h1 class="header__title header-40-1 header-lg-64">
-        Nie jesteś sam w walce <span class="header__title-one-line">o <span
-        class="underline-image">klimat</span> ✊.</span>
+        {{ $t('greeting') }} <span class="header__title-one-line">o <span
+        class="underline-image">planetę</span> ✊.</span>
       </h1>
 
       <a class="btn btn-primary" href="http://app.cityecoview.com">Pobierz aplikację</a>
@@ -32,15 +49,27 @@
 </template>
 
 <style lang="scss">
+@import "./../assets/variables";
 
 .header {
+  position: relative;
+
   @media (min-width: 992px) {
     display: flex;
-    margin: 3.5rem 2rem 0 2rem;
+    //3.5
+    margin: 2rem 2rem 0 2rem;
   }
   @media (min-width: 1200px) {
     max-width: 1140px;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
+  }
+
+  &__language {
+    color: $cardin-30;
+
+    &:hover, &.active {
+      color: $cardin-100;
+    }
   }
 
   &__text-wrapper {
@@ -101,6 +130,7 @@
       height: unset;
       min-width: 27rem;
       background-size: cover;
+      border-radius: 0.5rem;
     }
 
     @media (min-width: 1200px) {

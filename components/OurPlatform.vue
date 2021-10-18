@@ -105,24 +105,24 @@ export default {
         // },
 
         {
-          title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
+          title: 'Będąc częścią społeczności CityEcoView, możesz:',
           textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Wyszukiwanie miejsc',
-          smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
+          smallTitle: 'Wyszukać miejsce:',
+          smallDescription: 'Sprawdź czy miejsce które chcesz opisać jest już na naszej mapie.',
           imgUrl: 'device_map.jpg',
         },
         {
           title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
           textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Wyszukiwanie miejsc',
-          smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
+          smallTitle: 'Podzielić się swoją opinią:',
+          smallDescription: 'Zobacz co piszą inni i daj nam znać co o tym myślisz.',
           imgUrl: 'device_map.jpg',
         },
         {
           title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
           textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Wyszukiwanie miejsc',
-          smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
+          smallTitle: 'Włączyć się do działania:',
+          smallDescription: 'Dodaj swój komentarz , opisz na co warto zwrócić uwagę i miej wpływ na zmiany wokół Ciebie.',
           imgUrl: 'device_map.jpg',
         },
         // {

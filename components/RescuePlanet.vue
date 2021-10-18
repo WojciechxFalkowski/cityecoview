@@ -2,11 +2,11 @@
   <section class="wrapper rescue-planet">
     <div class="rescue-planet__description-wrapper">
       <h2 class="text-white header-24 header-lg-40-2">
-        <span class="d-lg-none">Zacznij już dziś ratować planetę wraz ze społecznością, której również zależy.</span>
-        <span class="d-none d-lg-block">Zacznij ratować planetę z ludźmi, którym zależy. </span>
+        <span class="d-lg-none">Nie czekaj! Miej realny wpływ na los planety już teraz!</span>
+        <span class="d-none d-lg-block">Nie czekaj! Miej realny wpływ na los planety już teraz!</span>
       </h2>
 
-      <a class="btn btn-primary mt-4" href="http://app.cityecoview.com">Ściągnij aplikację</a>
+      <a class="btn btn-primary mt-4" href="http://app.cityecoview.com">Dołącz</a>
     </div>
   </section>
 </template>
