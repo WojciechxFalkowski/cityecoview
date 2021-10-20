@@ -37,11 +37,11 @@
           fill="#181E1B"/>
       </svg>
       <h1 class="header__title header-40-1 header-lg-64">
-        {{ $t('greeting') }} <span class="header__title-one-line">o <span
-        class="underline-image">klimat</span> ✊.</span>
+        {{ $t('header.title') }} <span class="header__title-one-line">o <span
+        class="underline-image">{{ $t('header.title_underline') }} </span> ✊.</span>
       </h1>
 
-      <a class="btn btn-primary" href="http://app.cityecoview.com">Pobierz aplikację</a>
+      <a class="btn btn-primary" href="http://app.cityecoview.com">{{ $t('header.download_app') }}</a>
     </div>
 
     <div class="header__image"></div>

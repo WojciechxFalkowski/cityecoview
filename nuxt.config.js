@@ -61,7 +61,7 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: ['en', 'es','pl'],
+        locales: ['en', 'es', 'pl'],
         defaultLocale: 'pl',
         vueI18n: {
           fallbackLocale: 'pl',
@@ -70,6 +70,15 @@ export default {
               greeting: 'Hello world!'
             },
             pl: {
+              header: {
+                title: 'Razem w trosce',
+                title_underline: 'klimat',
+                download_app: 'Pobierz aplikacje'
+              },
+              user_steps: {
+                title_underline: 'Trzy&nbsp;kroki',
+                title: ' - tyle potrzeba, aby nasza planeta stała się dla nas wszystkich lepszym miejscem do życia'
+              },
               greeting: 'Razem w trosce'
             },
             es: {

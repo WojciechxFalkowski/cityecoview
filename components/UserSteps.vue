@@ -1,33 +1,32 @@
 <template>
   <section class="wrapper user-steps">
     <h2 class="user-steps__header header-24 header-lg-40-2">
-      <span class="underline-image">Trzy&nbsp;kroki</span> - tyle potrzeba, aby nasza planeta stała się dla nas
-      wszystkich
-      lepszym miejscem do życia
+      <span class="underline-image" v-html="$t('user_steps.title_underline')"></span>
+      {{ $t('user_steps.title') }}
     </h2>
-      <div class="row w-100">
-        <div class="col-12 col-md-4 mb-7 user-step">
-          <span class="user-step__index header-20 body-lg-32 text-info">01.</span>
-          <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Pobierz aplikację</h3>
+    <div class="row w-100">
+      <div class="col-12 col-md-4 mb-7 user-step">
+        <span class="user-step__index header-20 body-lg-32 text-info">01.</span>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Pobierz aplikację</h3>
 
-          <p class="body-16-2">Wejdź na <a class="btn btn-link"
-                                           href="http://app.cityecoview.com">app.cityecoview.com</a>
-            i&nbsp;pobierz naszą aplikację na swój telefon.</p>
-        </div>
+        <p class="body-16-2">Wejdź na <a class="btn btn-link"
+                                         href="http://app.cityecoview.com">app.cityecoview.com</a>
+          i&nbsp;pobierz naszą aplikację na swój telefon.</p>
+      </div>
 
-        <div class="col-12 col-md-4 mb-7 user-step">
-          <span class="user-step__index header-20 body-lg-32 text-info">02.</span>
-          <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Znajdż miejsce</h3>
+      <div class="col-12 col-md-4 mb-7 user-step">
+        <span class="user-step__index header-20 body-lg-32 text-info">02.</span>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Znajdż miejsce</h3>
 
-          <p class="body-16-2">Odszukaj miejsce, w którym występuje rozwiązanie eco lub&nbsp;wręcz przeciwne.</p>
-        </div>
+        <p class="body-16-2">Odszukaj miejsce, w którym występuje rozwiązanie eco lub&nbsp;wręcz przeciwne.</p>
+      </div>
 
-        <div class="col-12 col-md-4 mb-7 user-step">
-          <span class="user-step__index header-20 body-lg-32 text-info">03.</span>
-          <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Uratuj planetę</h3>
+      <div class="col-12 col-md-4 mb-7 user-step">
+        <span class="user-step__index header-20 body-lg-32 text-info">03.</span>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Uratuj planetę</h3>
 
-          <p class="body-16-2">Wystaw opinię na temat wybranego miejsca i uruchom proces ratowania planety.</p>
-        </div>
+        <p class="body-16-2">Wystaw opinię na temat wybranego miejsca i uruchom proces ratowania planety.</p>
+      </div>
     </div>
   </section>
 </template>
