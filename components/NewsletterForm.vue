@@ -61,7 +61,7 @@ export default {
         this.emailErrorMessages.push("Proszę podać poprawny adres email.");
         return;
       }
-      fetch('https://formspree.io/f/xdoyjjbg', {
+      fetch('https://formspree.io/f/xjvpbrrk', {
         method: 'POST',
         body: JSON.stringify({email: this.email}),
         headers: {

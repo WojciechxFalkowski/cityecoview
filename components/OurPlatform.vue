@@ -9,15 +9,18 @@
         </h2>
 
         <div class="our-platform__device-mobile-wrapper">
-          <!--          <img class="our-platform__device-map" :src="`${$config._app.basePath}images/device_map.jpg`" alt="">-->
           <div id="carouselMobileIndicators" class="carousel slide h-100" data-bs-ride="carousel" data-bs-touch="true">
-
             <div class="carousel-inner h-100">
               <div v-for="(slide,index) of slides" class="carousel-item h-100"
                    :class="index===activeSlideIndex?'active':''">
-                <div class="h-100 position-relative">
-                  <img class="our-platform__carousel-image" :src="`${$config._app.basePath}images/${slide.imgUrl}`"
+                <div class="h-100 position-relative d-flex">
+                  <img class="our-platform__mobile-image"
+                       :src="`${$config._app.basePath}images/${slide.phoneSkeletonUrl}`"
                        :alt="slides.smallDescription">
+                  <video muted="muted" class="our-platform__mobile-video m-auto" autoplay>
+                    <source class="h-100" :src="`${$config._app.basePath}videos/${slide.imgUrl}`" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
@@ -37,9 +40,11 @@
         <div class="d-flex mb-8">
           <div ref="linesWrapper" class="our-platform__lines-wrapper">
             <div v-for="(slide,index) of slides" class="our-platform__line"
+                 :style="{animationDuration: `${slide.time}s`}"
                  :class="index===activeSlideIndex?'active':''"
                  data-bs-target="#carouselDesktopIndicators"
-                 :data-bs-slide-to="index" :aria-label="slide.smallDescription"></div>
+                 :data-bs-slide-to="index" :aria-label="slide.smallDescription">
+            </div>
           </div>
 
           <div class="our-platform__arrow-tips-wrapper">
@@ -68,11 +73,14 @@
     <div class="our-platform__device-desktop-wrapper">
       <div id="carouselDesktopIndicators" class="carousel slide h-100" data-bs-ride="carousel">
         <div class="carousel-inner h-100">
-          <div v-for="(slide,index) of slides" class="carousel-item h-100"
+          <div ref="slidersWrapperRef" v-for="(slide,index) of slides" class="carousel-item h-100"
                :class="index===activeSlideIndex?'active':''">
-            <div class="h-100 position-relative">
-              <img :src="`${$config._app.basePath}images/${slide.imgUrl}`"
-                   class="d-block position-absolute top-50 start-50 translate-middle" :alt="slide.smallDescription">
+            <div class="h-100 position-relative d-flex justify-content-center">
+              <img :src="`${$config._app.basePath}images/${slide.phoneSkeletonUrl}`"
+                   class="our-platform__desktop-image" alt="phone skeleton">
+              <video muted="muted" :src="`${$config._app.basePath}videos/${slide.imgUrl}`"
+                     class="our-platform__desktop-video m-auto" controls>
+              </video>
             </div>
           </div>
         </div>
@@ -89,49 +97,41 @@ export default {
       mobile_carousel: null,
       desktop_carousel: null,
       CAROUSEL_CONFIG: {
-        interval: 10000,
+        interval: 0,
         pause: false,
         wrap: true,
         touch: true,
       },
+      interval: null,
       activeSlideIndex: 0,
       slides: [
-        // {
-        //   title: 'Nasza platforma poz',
-        //   textUnderlined: 'ratowanie&nbsp;planety:',
-        //   smallTitle: 'Wyszukiwanie miejsc',
-        //   smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
-        //   imgUrl: 'device_map.jpg',
-        // },
-
         {
           title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
           textUnderlined: 'ratowanie&nbsp;planety:',
           smallTitle: 'Wyszukiwanie miejsc',
           smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
-          imgUrl: 'device_map.jpg',
+          imgUrl: 'carousel_mobile_1.mp4',
+          time: 11,
+          phoneSkeletonUrl: 'phone_skeleton.jpg',
         },
         {
           title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
           textUnderlined: 'ratowanie&nbsp;planety:',
           smallTitle: 'Wyszukiwanie miejsc',
           smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
-          imgUrl: 'device_map.jpg',
+          imgUrl: 'carousel_mobile_2.mp4',
+          time: 24,
+          phoneSkeletonUrl: 'phone_skeleton.jpg',
         },
         {
           title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
           textUnderlined: 'ratowanie&nbsp;planety:',
           smallTitle: 'Wyszukiwanie miejsc',
           smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
-          imgUrl: 'device_map.jpg',
+          imgUrl: 'carousel_mobile_3.mp4',
+          time: 39,
+          phoneSkeletonUrl: 'phone_skeleton.jpg',
         },
-        // {
-        //   title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
-        //   textUnderlined: 'ratowanie&nbsp;planety:',
-        //   smallTitle: 'Wyszukiwanie miejsc',
-        //   smallDescription: 'Wyszukaj swoje ulubione miejsce i zobacz jakie rozwiązania eco lub nie eco dostrzegli w nim inni użytkownicy oraz sprawdź podstawowe informacje na jego temat.',
-        //   imgUrl: 'hero_image.jpg',
-        // }
       ]
     }
   },
@@ -162,7 +162,29 @@ export default {
 
     desktopCarouselElement.addEventListener('slide.bs.carousel', (el) => {
       this.activeSlideIndex = el.to;
-    })
+      clearInterval(this.interval);
+      const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
+
+      const previousVideo = activeSlide.querySelector('video');
+      previousVideo.currentTime = 0;
+      previousVideo.pause();
+
+      setTimeout(() => {
+        const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
+
+        const activeVideo = activeSlide.querySelector('video');
+        activeVideo.play();
+        this.interval = setInterval(() => {
+          this.showNextSlide();
+        }, this.slides[this.activeSlideIndex].time * 1000)
+      }, 500)
+    });
+
+    const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
+    activeSlide.querySelector('video').play();
+    this.interval = setInterval(() => {
+      this.showNextSlide();
+    }, this.slides[0].time * 1000)
   },
   methods: {
     showPreviousSlide() {
@@ -230,13 +252,50 @@ export default {
 
   }
 
-  &__carousel-image {
+  &__mobile-image {
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 16rem;
+    height: 95%;
+    z-index: 1;
+  }
+
+  &__mobile-video {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+  }
+
+  &__desktop-image {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 85%;
+    z-index: 1;
+
+    @include media-breakpoint-up(lg) {
+      height: 95%;
+    }
+  }
+
+  &__desktop-video {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80%;
+
+    @include media-breakpoint-up(lg) {
+      height: 90%;
+    }
   }
 
   &__device-map {
@@ -273,7 +332,7 @@ export default {
       background-color: $turquoise;
       background-position: left;
       animation-name: loading-right;
-      animation-duration: 10s;
+      //animation-duration: 10s;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
     }
@@ -302,6 +361,10 @@ export default {
       width: 1.25rem;
       height: 1.25rem;
       transform: translateY(-6px);
+
+      &:hover {
+        opacity: 0.4;
+      }
 
       & path {
         transform: translate(7px, 6px);
@@ -332,6 +395,10 @@ export default {
       margin-left: 3rem;
       height: 45rem;
     }
+  }
+
+  & video::-webkit-media-controls {
+    display: none;
   }
 }
 </style>

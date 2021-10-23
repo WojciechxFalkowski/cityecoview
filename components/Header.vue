@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="position-absolute top-0 end-0 me-4 me-lg-0">
+    <div class="d-none position-absolute top-0 end-0 me-4 me-lg-0">
       <nuxt-link
         class="header__language body-12 text-decoration-none me-3"
         :to="switchLocalePath('pl')"

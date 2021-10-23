@@ -2,7 +2,7 @@
   font-family: "Poppins";
   src: url("#{$assetPath}/fonts/Poppins-Light.ttf");
   font-weight: 300;
-  font-display: optional;
+  font-display: swap;
 }
 
 @font-face {

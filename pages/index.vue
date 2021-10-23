@@ -24,6 +24,11 @@ import Companies from "~/components/Companies.vue";
 import NewsletterModal from "~/components/NewsletterModal.vue";
 
 export default Vue.extend({
+  head() {
+    return {
+      title: "CityEcoView: Spot&Change"
+    };
+  },
   components: {
     ContactUs,
     RescuePlanet,
@@ -49,7 +54,7 @@ export default Vue.extend({
         //@ts-ignore
         this.modal.show();
       }
-    }, 500000000)
+    }, 5000000)
   },
   methods: {
     closeModal() {

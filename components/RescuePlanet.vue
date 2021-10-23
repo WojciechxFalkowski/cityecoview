@@ -71,9 +71,10 @@ export default {
     a {
       width: fit-content;
       margin: 0 auto;
+      border-width: 0;
 
       &:hover {
-        border-color: $black;
+        border-color: unset;
       }
     }
   }
