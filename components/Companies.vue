@@ -8,7 +8,7 @@
       <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
         <swiper-slide class="d-flex justify-content-center" v-for="(slide,index) of slides"
                       :key="index">
-          <img class="companies__img" :src="`${$config._app.basePath}images/${slide.imgUrl}`" alt="">
+          <img class="companies__img" :src="`${$config._app.basePath}images/${slide.imgUrl}`" alt="Logo oxygen, youth business poland and prointegra company">
         </swiper-slide>
       </swiper>
     </div>
