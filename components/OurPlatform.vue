@@ -27,16 +27,14 @@
           </div>
         </div>
 
-        <h3 class="header-20 header-lg-24 fw-bold mt-6 mt-md-8 mb-4 mb-md-5">
+        <h3 class="our-platform__small-title header-20 header-lg-24 fw-bold mt-6 mt-md-8 mb-4 mb-md-5">
           {{ activeSlideDescription.smallTitle }}
         </h3>
 
-        <p class="body-16-2 mb-7">
+        <p class="our-platform__small-description body-16-2">
           {{ activeSlideDescription.smallDescription }}
         </p>
-      </div>
 
-      <div>
         <div class="d-flex mb-8">
           <div ref="linesWrapper" class="our-platform__lines-wrapper">
             <div v-for="(slide,index) of slides" class="our-platform__line"
@@ -62,6 +60,9 @@
             </svg>
           </div>
         </div>
+      </div>
+
+      <div>
 
         <p class="body-12 mt-2 mt-md-0 mb-0">
           To tylko niektóre z funkcjonalności, które przygotwaliśmy, aby uczynić naszą planetę lepszym miejscem dla nas
@@ -307,6 +308,20 @@ export default {
     border-radius: 1.25rem;
     @media (min-width: 768px) {
       width: 16.25rem;
+    }
+  }
+
+  &__small-title {
+    min-height: 3.75rem;
+    @media (min-width: 360px) {
+      min-height: 1.875rem;
+    }
+  }
+
+  &__small-description {
+    min-height: 6.5rem;
+    @media (min-width: 360px) {
+      min-height: 4.875rem;
     }
   }
 
