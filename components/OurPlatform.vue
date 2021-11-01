@@ -42,6 +42,7 @@
                  :style="{animationDuration: `${slide.time}s`}"
                  :class="index===activeSlideIndex?'active':''"
                  data-bs-target="#carouselDesktopIndicators"
+                 role="progressbar"
                  :data-bs-slide-to="index" :aria-label="slide.smallDescription">
             </div>
           </div>
