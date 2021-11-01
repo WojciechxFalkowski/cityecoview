@@ -40,7 +40,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      modal: null
+      modal: null,
+      timeoutId: null,
+      LOCAL_STORAGE_MODAL_KEY: 'isModalShown'
     }
   },
   mounted() {
@@ -48,14 +50,31 @@ export default Vue.extend({
     this.$refs.modalComponentRef.$refs.modalRef.on
     //@ts-ignore
     this.modal = new bootstrap.Modal(this.$refs.modalComponentRef.$refs.modalRef, {})
-
-    setTimeout(() => {
-      if (this.modal) {
-        //@ts-ignore
-        this.modal.show();
-      }
-    }, 8000)
+    console.log('localStorage')
+    //@ts-ignore
+    const localStorageModal = JSON.parse(localStorage.getItem(this.LOCAL_STORAGE_MODAL_KEY))
+    if (localStorageModal && new Date().getTime() > localStorageModal.timestamp + 1000 * 60 * 60 * 24) {
+      localStorage.removeItem(this.LOCAL_STORAGE_MODAL_KEY)
+    }
+    if (!localStorageModal) {
+      //@ts-ignore
+      this.timeoutId = setTimeout(() => {
+        if (this.modal) {
+          //@ts-ignore
+          this.modal.show();
+          const localStorageModal = {value: true, timestamp: new Date().getTime()}
+          localStorage.setItem(this.LOCAL_STORAGE_MODAL_KEY, JSON.stringify(localStorageModal));
+        }
+      }, 8000)
+    }
   },
+  beforeDestroy() {
+    if (this.timeoutId) {
+      //@ts-ignore
+      clearTimeout(this.timeoutId)
+    }
+  },
+
   methods: {
     closeModal() {
       if (typeof this.modal !== 'undefined' && this.modal !== null) {

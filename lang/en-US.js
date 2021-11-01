@@ -53,7 +53,7 @@ export default {
 
     },
     small_description: {
-      text: 'To tylko niektóre z funkcjonalności, które przygotwaliśmy, aby uczynić naszą planetę lepszym miejscem dla nas wszystkich - sprawdź resztę sam na ',
+      text: 'It is only couple of possibilities our app has to offer – for more go to ',
       link: 'http://app.cityecoview.com'
     }
   },
