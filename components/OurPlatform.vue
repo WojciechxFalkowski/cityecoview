@@ -4,7 +4,8 @@
       <div>
         <h2 class="header-24 header-lg-40-2 fw-bold mb-7">
           {{ activeSlideDescription.title }}
-          <span class="underline-image" v-html="activeSlideDescription.textUnderlined">
+          <span :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'"
+                v-html="activeSlideDescription.textUnderlined">
           </span>
         </h2>
 
@@ -14,7 +15,7 @@
               <div v-for="(slide,index) of slides" class="carousel-item h-100"
                    :class="index===activeSlideIndex?'active':''">
                 <div class="h-100 position-relative d-flex">
-                  <img class="our-platform__mobile-image"
+                  <img alt="phone skeleton image" class="our-platform__mobile-image"
                        :src="`${$config._app.basePath}images/${slide.phoneSkeletonUrl}`"
                        :alt="slides.smallDescription">
                   <video muted="muted" class="our-platform__mobile-video m-auto" autoplay>
@@ -64,9 +65,9 @@
 
       <div>
 
-        <p class="body-12 mt-2 mt-md-0 mb-0">
-          To tylko niektóre z funkcjonalności, które przygotwaliśmy, aby uczynić naszą planetę lepszym miejscem dla nas
-          wszystkich - sprawdź resztę sam na <a class="btn btn-link body-12" href="http://app.cityecoview.com">app.cityecoview.com</a>
+        <p class="body-12 mt-2 mt-md-0 mb-0">{{ $t('our_platform.small_description.text') }}
+          <a class="btn btn-link body-12"
+             :href="$t('our_platform.small_description.link')">{{ $t('our_platform.small_description.link') }}</a>
         </p>
       </div>
     </div>
@@ -107,28 +108,28 @@ export default {
       activeSlideIndex: 0,
       slides: [
         {
-          title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
-          textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Wyszukiwanie miejsc',
-          smallDescription: 'Sprawdź czy miejsce które chcesz opisać jest już na naszej mapie.',
+          title: this.$t('our_platform.slides.first_slide.title'),
+          textUnderlined: this.$t('our_platform.slides.first_slide.text_underlined'),
+          smallTitle: this.$t('our_platform.slides.first_slide.small_title'),
+          smallDescription: this.$t('our_platform.slides.first_slide.small_description'),
           imgUrl: 'carousel_mobile_1.mp4',
           time: 11,
           phoneSkeletonUrl: 'phone_skeleton.jpg',
         },
         {
-          title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
-          textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Dzielenie się opinią',
-          smallDescription: 'Zobacz co piszą inni i daj nam znać co o tym myślisz.',
+          title: this.$t('our_platform.slides.second_slide.title'),
+          textUnderlined: this.$t('our_platform.slides.second_slide.text_underlined'),
+          smallTitle: this.$t('our_platform.slides.second_slide.small_title'),
+          smallDescription: this.$t('our_platform.slides.second_slide.small_description'),
           imgUrl: 'carousel_mobile_2.mp4',
           time: 24,
           phoneSkeletonUrl: 'phone_skeleton.jpg',
         },
         {
-          title: 'Nasza platforma pozwala na różne aktywności, wspomagające',
-          textUnderlined: 'ratowanie&nbsp;planety:',
-          smallTitle: 'Włączenie się do działania',
-          smallDescription: 'Dodaj swój komentarz , opisz na co warto zwrócić uwagę i miej wpływ na zmiany wokół Ciebie.',
+          title: this.$t('our_platform.slides.third_slide.title'),
+          textUnderlined: this.$t('our_platform.slides.third_slide.text_underlined'),
+          smallTitle: this.$t('our_platform.slides.third_slide.small_title'),
+          smallDescription: this.$t('our_platform.slides.third_slide.small_description'),
           imgUrl: 'carousel_mobile_3.mp4',
           time: 39,
           phoneSkeletonUrl: 'phone_skeleton.jpg',
@@ -166,19 +167,25 @@ export default {
       clearInterval(this.interval);
       const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
 
-      const previousVideo = activeSlide.querySelector('video');
-      previousVideo.currentTime = 0;
-      previousVideo.pause();
+      if (activeSlide) {
 
-      setTimeout(() => {
-        const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
+        const previousVideo = activeSlide.querySelector('video');
+        previousVideo.currentTime = 0;
+        previousVideo.pause();
 
-        const activeVideo = activeSlide.querySelector('video');
-        activeVideo.play();
-        this.interval = setInterval(() => {
-          this.showNextSlide();
-        }, this.slides[this.activeSlideIndex].time * 1000)
-      }, 500)
+        setTimeout(() => {
+          const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
+
+          if (activeSlide) {
+            const activeVideo = activeSlide.querySelector('video');
+            activeVideo.play();
+            this.interval = setInterval(() => {
+              this.showNextSlide();
+            }, this.slides[this.activeSlideIndex].time * 1000)
+          }
+
+        }, 500)
+      }
     });
 
     const activeSlide = this.$refs.slidersWrapperRef.find(slide => slide.classList.contains('active'));
@@ -223,12 +230,26 @@ export default {
     &::after {
       background-image: url("#{$assetPath}/images/saving_the_planet_line.jpg");
       height: 0.875rem;
-      transform: translate(-50%, 90%);
+      transform: translate(-50%, 75%);
 
       @media (min-width: 992px) {
+        width: 105%;
         background-image: url("#{$assetPath}/images/saving_the_planet_line-desktop.jpg");
         height: 1.4375rem;
-        transform: translate(-50%, 45%);
+      }
+    }
+  }
+
+  .underline-image-en {
+    &::after {
+      background-image: url("#{$assetPath}/images/saving_the_planet_line.jpg");
+      height: 0.875rem;
+      transform: translate(-50%, 75%);
+
+      @media (min-width: 992px) {
+        background-image: url("#{$assetPath}/images/saving_the_planet_line_en-desktop.jpg");
+        height: 1.4375rem;
+        transform: translate(-50%, 60%);
       }
     }
   }
@@ -321,7 +342,7 @@ export default {
   &__small-description {
     min-height: 6.5rem;
     @media (min-width: 360px) {
-      min-height: 4.875rem;
+      min-height: 8.125rem;
     }
   }
 

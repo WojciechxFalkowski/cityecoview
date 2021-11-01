@@ -2,9 +2,7 @@
   <section class="wrapper contact-us">
     <div class="row w-100">
       <div class="contact-us__questions-wrapper col-12 col-md-6">
-        <h2 class="fw-bold header-24 header-lg-40-2 mb-5">
-          <span class="underline-image">Masz&nbsp;pytania?</span> Skontaktuj się z&nbsp;nami:
-        </h2>
+        <h2 class="fw-bold header-24 header-lg-40-2 mb-5" v-html="$t('contact_us.title')"></h2>
 
         <a class="btn btn-link mb-6 header-md-24" href="mailto:info@cityecoview.com">
           info@cityecoview.com
@@ -15,42 +13,25 @@
         <div>
           <a class="btn btn-link text-dark me-4 me-md-2 me-lg-4"
              href="https://www.facebook.com/cityeco.view.1"
-             target="_blank">
+             target="_blank" rel="noopener">
             Facebook
           </a>
 
 
           <a class="btn btn-link text-dark me-4 me-md-2 me-lg-4"
              href="https://www.instagram.com/cityecoview/"
-             target="_blank">
+             target="_blank" rel="noopener">
             Instagram
           </a>
 
-          <a class="btn btn-link text-dark" href="https://twitter.com/CityEcoView1" target="_blank">
+          <a class="btn btn-link text-dark" href="https://twitter.com/CityEcoView1" target="_blank" rel="noopener">
             Twitter
           </a>
         </div>
       </div>
       <div class="contact-us__newsletter-wrapper col-12 col-md-6">
-        <NewsletterForm/>
+        <NewsletterForm id="contact_us"/>
       </div>
-      <!--    <div class="contact-us__newsletter-wrapper">-->
-      <!--      <h2 class="fw-bold header-24 header-lg-40-2 mb-5">-->
-      <!--        Chcesz być na bieżąco? <span class="underline-image">Zapisz&nbsp;się</span> do newslettera-->
-      <!--      </h2>-->
-
-      <!--      <form action="">-->
-      <!--        <div class="form-floating mb-4">-->
-      <!--          <input type="email" class="form-control border-top-0 border-start-0 border-end-0" id="floatingInput"-->
-      <!--                 placeholder="Twój adres e-mail">-->
-      <!--          <label class="contact-us__floating-label" for="floatingInput">Twój adres e-mail</label>-->
-      <!--        </div>-->
-
-      <!--        <button class="btn btn-primary contact-us__submit-btn" type="submit">-->
-      <!--          Zapisz się-->
-      <!--        </button>-->
-      <!--      </form>-->
-      <!--    </div>-->
     </div>
   </section>
 </template>

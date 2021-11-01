@@ -12,7 +12,7 @@
         </div>
 
         <div class="modal-body">
-          <NewsletterForm/>
+          <NewsletterForm id="modal"/>
         </div>
         <!--        <div class="modal-footer">-->
         <!--          <button type="button" class="btn btn-primary">Zapisz się</button>-->

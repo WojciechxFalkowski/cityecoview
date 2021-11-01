@@ -1,31 +1,31 @@
 <template>
   <section class="wrapper user-steps">
     <h2 class="user-steps__header header-24 header-lg-40-2">
-      <span class="underline-image" v-html="$t('user_steps.title_underline')"></span>
-      {{ $t('user_steps.title') }}
+      <span :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'" v-html="$t('user_steps.title_underline')"></span>
+      <span v-html="$t('user_steps.title')"></span>
     </h2>
     <div class="row w-100">
       <div class="col-12 col-md-4 mb-7 user-step">
         <span class="user-step__index header-20 body-lg-32 text-info">01.</span>
-        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Pobierz aplikację</h3>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">{{ $t('user_steps.user_first_step.title') }}</h3>
 
-        <p class="body-16-2">Wejdź na <a class="btn btn-link"
-                                         href="http://app.cityecoview.com">app.cityecoview.com</a>
-          i&nbsp;pobierz naszą aplikację na swój telefon.</p>
+        <p class="body-16-2">{{ $t('user_steps.user_first_step.beginning_description') }}<a class="btn btn-link"
+                                                                                            :href="$t('user_steps.user_first_step.link')">{{ $t('user_steps.user_first_step.link') }}</a>
+          {{ $t('user_steps.user_first_step.end_description') }}</p>
       </div>
 
       <div class="col-12 col-md-4 mb-7 user-step">
         <span class="user-step__index header-20 body-lg-32 text-info">02.</span>
-        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Znajdż miejsce</h3>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">{{ $t('user_steps.user_second_step.title') }}</h3>
 
-        <p class="body-16-2">Odszukaj miejsce, w którym występuje rozwiązanie eco lub&nbsp;wręcz przeciwne.</p>
+        <p class="body-16-2" v-html="$t('user_steps.user_second_step.description')"></p>
       </div>
 
       <div class="col-12 col-md-4 mb-7 user-step">
         <span class="user-step__index header-20 body-lg-32 text-info">03.</span>
-        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">Uratuj planetę</h3>
+        <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">{{ $t('user_steps.user_third_step.title') }}</h3>
 
-        <p class="body-16-2">Wystaw opinię na temat wybranego miejsca i uruchom proces ratowania planety.</p>
+        <p class="body-16-2" v-html="$t('user_steps.user_third_step.description')"></p>
       </div>
     </div>
   </section>
@@ -42,7 +42,7 @@ export default {}
   }
 
   &__header {
-    max-width: 45.1875rem;
+    max-width: 36rem;
     margin-bottom: 3rem;
     font-weight: bold;
 
@@ -60,14 +60,30 @@ export default {}
   .underline-image {
     &::after {
       background-image: url("#{$assetPath}/images/three_steps_line.jpg");
+      height: 1.0625rem;
+      transform: translate(-50%, 75%);
 
       @media (min-width: 992px) {
         background-image: url("#{$assetPath}/images/three_steps_line-desktop.jpg");
         height: 1.0625rem;
-        transform: translate(-50%, 0);
+        width: 105%;
+        transform: translate(-50%, 25%);
       }
     }
   }
+
+  .underline-image-en {
+    &::after {
+      background-image: url("#{$assetPath}/images/three_steps_line_en-desktop.jpg");
+      transform: translate(-50%, 50%);
+      height: 1.0625rem;
+
+      @media (min-width: 992px) {
+        background-image: url("#{$assetPath}/images/three_steps_line_en-desktop.jpg");
+      }
+    }
+  }
+
 }
 
 .user-step {

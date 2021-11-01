@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="d-none position-absolute top-0 end-0 me-4 me-lg-0">
+    <div class="position-absolute top-0 end-0 mt-1 mt-lg-0 me-4 me-lg-0">
       <nuxt-link
         class="header__language body-12 text-decoration-none me-3"
         :to="switchLocalePath('pl')"
@@ -37,8 +37,8 @@
           fill="#181E1B"/>
       </svg>
       <h1 class="header__title header-40-1 header-lg-64">
-        {{ $t('header.title') }} <span class="header__title-one-line">o <span
-        class="underline-image">{{ $t('header.title_underline') }} </span> ✊.</span>
+        {{ $t('header.title') }} <span class="header__title-one-line">{{ $t('header.title_pronoun') }}<span
+        :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'">{{ $t('header.title_underline') }} </span> ✊.</span>
       </h1>
 
       <a class="btn btn-primary" href="http://app.cityecoview.com">{{ $t('header.download_app') }}</a>
@@ -104,13 +104,27 @@
 
   .underline-image {
     &::after {
-      width: 9rem;
+      width: 107%;
       background-image: url("#{$assetPath}/images/climate_line.jpg");
+
+      @media(min-width: 992px) {
+        width: 100%;
+        height: 0.75rem;
+        background-image: url("#{$assetPath}/images/climate_line-desktop.jpg");
+        transform: translate(-50%, 25%);
+      }
+    }
+  }
+
+  .underline-image-en {
+    &::after {
+      //width: 9rem;
+      background-image: url("#{$assetPath}/images/climate_line_en.jpg");
 
       @media(min-width: 992px) {
         width: 110%;
         height: 0.75rem;
-        background-image: url("#{$assetPath}/images/climate_line-desktop.jpg");
+        background-image: url("#{$assetPath}/images/climate_line_en-desktop.jpg");
         transform: translate(-50%, 0);
       }
     }

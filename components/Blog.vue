@@ -1,7 +1,14 @@
 <template>
   <section class="wrapper blog">
-    <h2 class="header-24 header-lg-40-2 fw-bold mb-4">Głodny wiedzy? Sprawdż jak być bardziej eko dzięki naszym <span
-      class="underline-image">arykułom</span></h2>
+    <h2 class="header-24 header-lg-40-2 fw-bold mb-4">
+      {{ $t('blog.title_first_line') }}
+      <br v-if="$i18n.locale === 'en'"/>
+      {{ $t('blog.title_continuation') }}
+
+      <span
+        :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'"
+        v-html="$t('blog.text_underlined')"></span>
+    </h2>
 
     <swiper class="d-lg-none" ref="mySwiper" :options="swiperOptions">
       <swiper-slide v-for="(slide,index) of slides" :key="index">
@@ -11,8 +18,13 @@
 
       <swiper-slide class="d-flex justify-content-center align-items-center h-auto">
         <div class="blog__article-discover-more-description">
-          <h4 class="header-24 text-center fw-bold mb-md-5">Odkry więcej treści</h4>
-          <p class="text-center">Kliknij kafelek, aby <a href="#">przejść na blog</a></p>
+          <h3 class="header-24 text-center fw-bold mb-md-5">{{ $t('blog.discover_more.title') }}</h3>
+          <p class="text-center">{{ $t('blog.discover_more.description') }}
+            <a class="d-block"
+               :href="$t('blog.discover_more.link')">{{
+                $t('blog.discover_more.decorated_description')
+              }}</a>
+          </p>
         </div>
       </swiper-slide>
     </swiper>
@@ -44,8 +56,12 @@
 
           <div class="blog__article-discover-more">
             <div class="blog__article-discover-more-description">
-              <h4 class="header-24 text-center fw-bold mb-2">Odkry więcej treści</h4>
-              <p class="text-center">Kliknij kafelek, aby <a href="#">przejść na blog</a></p>
+              <h4 class="header-24 text-center fw-bold mb-2">{{ $t('blog.discover_more.title') }}</h4>
+              <p class="text-center">{{ $t('blog.discover_more.description') }}
+                <a class="d-block" :href="$t('blog.discover_more.decorated_description')">{{
+                    $t('blog.discover_more.decorated_description')
+                  }}</a>
+              </p>
             </div>
           </div>
         </div>
@@ -71,17 +87,17 @@ export default {
         {
           imgUrl: 'blog_img_1.jpg',
           imgUrlDesktop: 'blog_img_1-desktop.jpg',
-          description: 'Ecological statistics from aircraft'
+          description: this.$t('blog.slides[0].description')
         },
         {
           imgUrl: 'blog_img_1.jpg',
           imgUrlDesktop: 'blog_img_2-desktop.jpg',
-          description: 'Plants: friends or foes of vegan people. Battle highlights.'
+          description: this.$t('blog.slides[1].description')
         },
         {
           imgUrl: 'blog_img_1.jpg',
           imgUrlDesktop: 'blog_img_3-desktop.jpg',
-          description: '5 easy tricks for ecological life and work'
+          description: this.$t('blog.slides[2].description')
         }
       ],
       image: null
@@ -107,20 +123,31 @@ export default {
 
 .blog {
 
-  &>h2{
+  & > h2 {
     max-width: 49.875rem;
   }
 
   .underline-image {
     &::after {
       background-image: url("#{$assetPath}/images/blog_line.jpg");
-      //height: 0.875rem;
       transform: translate(-50%, 40%);
 
       @media (min-width: 992px) {
         background-image: url("#{$assetPath}/images/blog_line-desktop.jpg");
         height: 1.4375rem;
-        transform: translate(-50%, 45%);
+        transform: translate(-50%, 55%);
+      }
+    }
+  }
+
+  .underline-image-en {
+    &::after {
+      background-image: url("#{$assetPath}/images/blog_line_en.jpg");
+      transform: translate(-50%, 55%);
+      height: 1.4375rem;
+
+      @media (min-width: 992px) {
+        background-image: url("#{$assetPath}/images/blog_line_en-desktop.jpg");
       }
     }
   }

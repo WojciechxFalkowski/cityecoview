@@ -13,7 +13,7 @@ export default {
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: ''},
+      {hid: 'description', name: 'description', content: 'Razem w trosce o klimat.'},
       {name: 'format-detection', content: 'telephone=no'}
     ],
     link: [
@@ -61,30 +61,25 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: ['en', 'es', 'pl'],
+        detectBrowserLanguage: {
+          useCookie: false,
+        },
+        // locales: ['en', 'es', 'pl'],
+        locales: [
+          {
+            code: 'en',
+            file: 'en-US.js'
+          },
+          {
+            code: 'pl',
+            file: 'pl-PL.js'
+          }
+        ],
+        lazy: true,
+        langDir: 'lang/',
         defaultLocale: 'pl',
         vueI18n: {
-          fallbackLocale: 'pl',
-          messages: {
-            en: {
-              greeting: 'Hello world!'
-            },
-            pl: {
-              header: {
-                title: 'Razem w trosce',
-                title_underline: 'klimat',
-                download_app: 'Pobierz aplikacje'
-              },
-              user_steps: {
-                title_underline: 'Trzy&nbsp;kroki',
-                title: ' - tyle potrzeba, aby nasza planeta stała się dla nas wszystkich lepszym miejscem do życia'
-              },
-              greeting: 'Razem w trosce'
-            },
-            es: {
-              greeting: '¡Hola mundo!'
-            }
-          }
+          fallbackLocale: 'en',
         }
       }
     ]

@@ -1,14 +1,18 @@
 <template>
   <div class="wrapper companies">
     <div class="companies__wrapper">
-      <h3 class="header-20 text-white text-center mx-auto mb-6 mb-md-7 px-5">Firmy, którym <span
-        class="underline-image">dziękujemy</span> za&nbsp;zaufanie
+      <h3 class="header-20 text-white text-center mx-auto mb-6 mb-md-7 px-5">
+        {{ $t('companies.beginning_title') }}
+        <span
+          :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'" v-html="$t('companies.text_underlined')">
+        </span>
+        {{ $t('companies.end_title') }}
       </h3>
 
       <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
         <swiper-slide class="d-flex justify-content-center" v-for="(slide,index) of slides"
                       :key="index">
-          <img class="companies__img" :src="`${$config._app.basePath}images/${slide.imgUrl}`" alt="Logo oxygen, youth business poland and prointegra company">
+          <img class="companies__img" :src="`${$config._app.basePath}images/${slide.imgUrl}`" :alt="slide.alt">
         </swiper-slide>
       </swiper>
     </div>
@@ -51,12 +55,15 @@ export default {
       },
       slides: [
         {
+          alt: 'oxygen company logo',
           imgUrl: 'oxygen.svg'
         },
         {
+          alt: 'youth business polad company logo',
           imgUrl: 'logo_youth_business_poland.svg'
         },
         {
+          alt: 'prointegra company logo',
           imgUrl: 'logo_prointegra.svg'
         },
       ]
@@ -136,6 +143,24 @@ export default {
 
           @media (min-width: 768px) {
             background-image: url("#{$assetPath}/images/companies-desktop_line.svg");
+            height: 1.4375rem;
+            transform: translate(-50%, 55%);
+          }
+        }
+      }
+
+      .underline-image-en {
+        z-index: 100;
+
+        &::after {
+          width: 100%;
+          background-image: url("#{$assetPath}/images/companies_line.svg");
+          transform: translate(-50%, 60%) scaleY(0.6);
+          height: 1.4375rem;
+
+          @media (min-width: 768px) {
+            width: 110%;
+            background-image: url("#{$assetPath}/images/companies-line_en-desktop.svg");
             height: 1.4375rem;
             transform: translate(-50%, 55%);
           }

@@ -1,15 +1,14 @@
 <template>
   <div class="newsletter-form">
-    <h2 class="fw-bold header-24 header-lg-40-2 mb-5">
-      Chcesz być na bieżąco? <span class="underline-image">Zapisz&nbsp;się</span> do newslettera!
-    </h2>
+    <h2 class="fw-bold header-24 header-lg-40-2 mb-5" v-html="$t('newsletter_form.title')"></h2>
 
     <form @submit.pr.prevent="sendMessage">
       <div class="form-floating mb-5">
         <input v-model="email" type="email" class="form-control border-top-0 border-start-0 border-end-0"
-               id="floatingInput"
-               placeholder="Twój adres e-mail" name="email">
-        <label class="newsletter-form__floating-label" for="floatingInput">Twój adres e-mail</label>
+               :id="id+'email'"
+               :placeholder="$t('newsletter_form.email_placeholder')" name="email">
+        <label class="newsletter-form__floating-label"
+               :for="id+'email'">{{ $t('newsletter_form.email_placeholder') }}</label>
 
         <div v-if="emailErrorMessages.length>0" v-for="emailErrorMessage of emailErrorMessages"
              class="newsletter-form__error-message">
@@ -17,12 +16,12 @@
         </div>
       </div>
 
-      <button class="btn btn-primary newsletter-form__submit-btn" type="submit">
-        Zapisz się
+      <button class="btn btn-primary newsletter-form__submit-btn w-auto" type="submit">
+        {{ $t('newsletter_form.sing_up') }}
       </button>
 
       <div v-if="isEmailSent" class="newsletter-form__message-sent">
-        Dziękujemy za zapisanie się do newslettera!
+        {{ $t('newsletter_form.thanks_for_subscribing') }}
       </div>
     </form>
   </div>
@@ -31,6 +30,7 @@
 <script>
 export default {
   name: "NewsletterForm",
+  props: ['id'],
   data() {
     return {
       email: "",
@@ -53,12 +53,12 @@ export default {
       this.resetMessages();
 
       if (this.email.length <= 0) {
-        this.emailErrorMessages.push("Proszę podać adres email.");
+        this.emailErrorMessages.push(this.$t('newsletter_form.email_errors.valid_email'));
         return;
       }
 
       if (!this.isValidEmail(this.email)) {
-        this.emailErrorMessages.push("Proszę podać poprawny adres email.");
+        this.emailErrorMessages.push(this.$t('newsletter_form.email_errors.valid_email'));
         return;
       }
       fetch('https://formspree.io/f/xjvpbrrk', {
@@ -73,7 +73,7 @@ export default {
           this.isEmailSent = res.ok;
         })
         .catch(error => {
-          this.emailErrorMessages.push("Ups! Wystąpił problem z przesłaniem formularza");
+          this.emailErrorMessages.push(this.$t('newsletter_form.email_errors.something_went_wrong'));
           console.error(error)
           // this.emailErrorMessage.push("Oops! There was a problem submitting your form")
         });
