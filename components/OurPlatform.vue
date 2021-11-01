@@ -378,7 +378,9 @@ export default {
       transform: translateY(-6px);
 
       &:hover {
-        opacity: 0.4;
+        @include media-breakpoint-up(lg) {
+          opacity: 0.4;
+        }
       }
 
       & path {
