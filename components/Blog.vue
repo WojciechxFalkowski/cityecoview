@@ -58,7 +58,7 @@
             <div class="blog__article-discover-more-description">
               <h4 class="header-24 text-center fw-bold mb-2">{{ $t('blog.discover_more.title') }}</h4>
               <p class="text-center">{{ $t('blog.discover_more.description') }}
-                <a class="d-block" :href="$t('blog.discover_more.decorated_description')">{{
+                <a class="d-block" :href="$t('blog.discover_more.link')">{{
                     $t('blog.discover_more.decorated_description')
                   }}</a>
               </p>
