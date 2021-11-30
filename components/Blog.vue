@@ -90,12 +90,12 @@ export default {
           description: this.$t('blog.slides[0].description')
         },
         {
-          imgUrl: 'blog_img_1.jpg',
+          imgUrl: 'blog_img_2.jpg',
           imgUrlDesktop: 'blog_img_2-desktop.jpg',
           description: this.$t('blog.slides[1].description')
         },
         {
-          imgUrl: 'blog_img_1.jpg',
+          imgUrl: 'blog_img_3.jpg',
           imgUrlDesktop: 'blog_img_3-desktop.jpg',
           description: this.$t('blog.slides[2].description')
         }

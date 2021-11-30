@@ -18,7 +18,7 @@ export default {
     user_first_step: {
       title: 'Download the app',
       link: 'app.cityecoview.com',
-      beginning_description: 'Grab your phone, go to',
+      beginning_description: 'Grab your phone, go to ',
       end_description: ' and add the app to your screen'
     },
     user_second_step: {
@@ -93,7 +93,7 @@ export default {
     title: '<span class="underline-image">Any&nbsp;questions?</span> Go&nbsp;ahead, contact&nbsp;with&nbsp;us!'
   },
   newsletter_form: {
-    title: 'Wanna know more! <span class="underline-image">Join&nbsp;our</span> newsletter and stay up to date!',
+    title: 'Want to know more? <span class="underline-image">Join&nbsp;our</span> newsletter and stay up to date!',
     email_errors: {
       valid_email: 'Please enter your e-mail address.',
       something_went_wrong: 'Oops! There was a problem submitting the form.'
@@ -102,4 +102,8 @@ export default {
     thanks_for_subscribing: 'Thank you for subscribing to the newsletter!',
     sing_up: 'Join newsletter'
   },
+  cookies_privacy_policy: {
+    description: 'This website uses cookies to provide services to the highest level. By continuing to use the site, you agree to their use.',
+    accept_text: 'I understand'
+  }
 }

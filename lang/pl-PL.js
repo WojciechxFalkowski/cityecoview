@@ -17,7 +17,7 @@ export default {
     user_first_step: {
       title: 'Pobierz aplikację',
       link: 'app.cityecoview.com',
-      beginning_description: 'Złap telefon, wejdź na',
+      beginning_description: 'Złap telefon, wejdź na ',
       end_description: ' i dodaj aplikację do ekranu głównego'
     },
     user_second_step: {
@@ -63,7 +63,7 @@ export default {
   },
   blog: {
     title_first_line: 'Głodny wiedzy? ',
-    title_continuation:'Sprawdź na co warto zwrócić uwagę dzięki naszym ',
+    title_continuation: 'Sprawdź na co warto zwrócić uwagę dzięki naszym ',
     text_underlined: 'artykułom',
     slides: [
       {
@@ -80,7 +80,7 @@ export default {
       title: 'Odkryj więcej treści',
       description: 'Kliknij kafelek, aby',
       decorated_description: ' przejść na blog',
-      link: '#'
+      link: 'https://cityecoview.blogspot.com/'
     }
   },
   companies: {
@@ -100,6 +100,10 @@ export default {
     email_placeholder: 'Twój adres e-mail',
     thanks_for_subscribing: 'Dziękujemy za zapisanie się do newslettera!',
     sing_up: 'Zapisz się'
+  },
+  cookies_privacy_policy: {
+    description: 'Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.',
+    accept_text:'Rozumiem'
   },
   greeting: 'Razem w trosce'
 }
