@@ -1,7 +1,8 @@
 <template>
   <section class="wrapper user-steps">
     <h2 class="user-steps__header header-24 header-lg-40-2">
-      <span :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'" v-html="$t('user_steps.title_underline')"></span>
+      <span :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'"
+            v-html="$t('user_steps.title_underline')"></span>
       <span v-html="$t('user_steps.title')"></span>
     </h2>
     <div class="row w-100">
@@ -10,7 +11,9 @@
         <h3 class="header-20 header-lg-24 mb-4 fw-bold mt-6 pt-xl-6">{{ $t('user_steps.user_first_step.title') }}</h3>
 
         <p class="body-16-2">{{ $t('user_steps.user_first_step.beginning_description') }}<a class="btn btn-link"
-                                                                                            :href="$t('user_steps.user_first_step.link')">{{ $t('user_steps.user_first_step.link') }}</a>
+                                                                                            :href="'https://'+$t('user_steps.user_first_step.link')">{{
+            $t('user_steps.user_first_step.link')
+          }}</a>
           {{ $t('user_steps.user_first_step.end_description') }}</p>
       </div>
 

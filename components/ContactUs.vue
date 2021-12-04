@@ -12,7 +12,7 @@
 
         <div>
           <a class="btn btn-link text-dark me-4 me-md-2 me-lg-4"
-             href="https://www.facebook.com/cityeco.view.1"
+             href="https://www.facebook.com/ecocityview"
              target="_blank" rel="noopener">
             Facebook
           </a>
