@@ -103,7 +103,8 @@ export default {
   },
   cookies_privacy_policy: {
     description: 'Ta strona korzysta z ciasteczek aby świadczyć usługi na najwyższym poziomie. Dalsze korzystanie ze strony oznacza, że zgadzasz się na ich użycie.',
-    accept_text:'Rozumiem'
+    accept_text: 'Rozumiem',
+    privacy_policy: 'Polityka prywatności'
   },
   greeting: 'Razem w trosce'
 }

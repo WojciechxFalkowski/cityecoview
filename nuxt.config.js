@@ -3,6 +3,17 @@ export default {
   target: 'static',
   router: {
     "base": '/',
+    extendRoutes(routes, resolve) {
+      routes.push(        {
+        name: 'deletion-instructions',
+        path: '/data-deletion-instructions',
+        component: resolve(__dirname, 'components/DataDeletionInstructions.vue')
+      },{
+        name: 'private-policy',
+        path: '/privacy-policy',
+        component: resolve(__dirname, 'components/PrivacyPolicy.vue')
+      })
+    }
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

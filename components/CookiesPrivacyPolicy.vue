@@ -9,6 +9,11 @@
       <button @click="$emit('set-cookies')" class="btn btn-primary py-2 body-12">
         {{ $t('cookies_privacy_policy.accept_text') }}
       </button>
+
+      <nuxt-link to="privacy-policy"
+                 class="btn btn-primary py-2 mt-2 mt-lg-0 ms-lg-2 body-12 cookies-privacy-policy__link">
+        {{ $t('cookies_privacy_policy.privacy_policy') }}
+      </nuxt-link>
     </div>
 
     <div @click="$emit('close-cookie')" class="cookies-privacy-policy__exit-icon">
@@ -64,6 +69,10 @@ export default {
       height: 1.25rem;
       fill: $white
     }
+  }
+
+  &__link {
+    min-width: 11rem;
   }
 }
 </style>

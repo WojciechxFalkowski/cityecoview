@@ -75,7 +75,7 @@
 import {Swiper, SwiperSlide} from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 
-export default {
+export const Blog = {
   name: "Blog",
   data() {
     return {
@@ -116,6 +116,7 @@ export default {
     this.swiper.slideTo(0, 1000, false);
   }
 }
+export default Blog;
 </script>
 
 <style lang="scss">

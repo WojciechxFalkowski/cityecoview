@@ -104,6 +104,7 @@ export default {
   },
   cookies_privacy_policy: {
     description: 'This website uses cookies to provide services to the highest level. By continuing to use the site, you agree to their use.',
-    accept_text: 'I understand'
+    accept_text: 'I understand',
+    privacy_policy: 'Privacy policy'
   }
 }
