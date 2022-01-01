@@ -41,13 +41,27 @@
         :class="$i18n.locale === 'pl'?'underline-image':'underline-image-en'">{{ $t('header.title_underline') }} </span> ✊.</span>
       </h1>
 
-      <a class="btn btn-primary" href="http://app.cityecoview.com">{{ $t('header.download_app') }}</a>
+      <a @click="downloadApp" class="btn btn-primary" href="http://app.cityecoview.com">{{
+          $t('header.download_app')
+        }}</a>
     </div>
 
     <div class="header__image"></div>
   </header>
 </template>
-
+<script>
+export default {
+  name: 'Header',
+  methods: {
+    downloadApp() {
+      this.$gtag.event('clicked_link', {
+        'event_category': 'bbb',
+        'event_label': 'ccc'
+      })
+    }
+  }
+}
+</script>
 <style lang="scss">
 @import "./../assets/variables";
 

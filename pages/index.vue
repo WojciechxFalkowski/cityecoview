@@ -68,6 +68,14 @@ export default Vue.extend({
       }, 8000)
     }
     this.isShownCookiePrivacyPolicy = !this.isCookieSet
+
+    console.log('mounted')
+    console.log(this.$gtag)
+    this.$gtag.event('aaa',{
+      'event_category' : 'bbb',
+      'event_label' : 'ccc'
+    });
+    this.$gtag.event('login', { method: 'Google' })
   },
   beforeDestroy() {
     if (this.timeoutId) {
