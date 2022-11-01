@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    "base": 'https://wojciechxfalkowski.github.io/cityecoview',
+    "base": '/',
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'deletion-instructions',
@@ -42,10 +42,10 @@ export default {
   server: {
     host: '0.0.0.0' // default: localhost
   },
-  // generate: {
-  //   dir: 'nuxt-dist',
-  //   subFolders: false
-  // },
+  generate: {
+    dir: 'nuxt-dist',
+    subFolders: false
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     { src: "@/assets/custom-bootstrap", lang: "scss" },
