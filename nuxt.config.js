@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    "base": '/',
+    "base": 'https://wojciechxfalkowski.github.io/cityecoview',
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'deletion-instructions',
@@ -22,13 +22,13 @@ export default {
       lang: 'en'
     },
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: 'Razem w trosce o klimat.'},
-      {name: 'format-detection', content: 'telephone=no'}
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: 'Razem w trosce o klimat.' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
       {
@@ -48,7 +48,7 @@ export default {
   // },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    {src: "@/assets/custom-bootstrap", lang: "scss"},
+    { src: "@/assets/custom-bootstrap", lang: "scss" },
     '@assets/scss/config.scss'
   ],
 
