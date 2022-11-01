@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/data-deletion-instructions", {data:[{}],fetch:{},mutations:[]});
